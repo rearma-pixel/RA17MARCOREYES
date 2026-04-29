@@ -1,0 +1,374 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4a184e 0%, #1d0202 100%);
+    /*cambie el color*/
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor de la tarjeta */
+.card-container {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+/* Tarjetas */
+.credential-card {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Mostrar la tarjeta activa */
+.credential-card:target {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Mostrar la primera tarjeta por defecto */
+.credential-card:first-child {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Ocultar la primera cuando se selecciona otra */
+#back:target ~ .credential-card:first-child,
+body:has(#back:target) .credential-card:first-child {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Estilos comunes para frente y reverso */
+.card-front,
+.card-back {
+    width: 100%;
+    aspect-ratio: 3 / 5;
+    border-radius: 20px;
+    box-shadow: 0 20px 35px rgba(247, 129, 129, 0.3);
+    /*cambie el color*/
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(145deg, #a31f1f 0%, #263b74 100%);
+    /*cambie el color*/
+    border: 1px solid rgba(231, 13, 13, 0.1);
+    /*cambie el color*/
+}
+
+/* FRENTE */
+.card-front {
+    transform: rotateY(0deg);
+}
+
+/* REVERSO */
+.card-back {
+    background: linear-gradient(145deg, #2648b8 0%, #c54e4e 100%);
+    /*cambie el color*/
+}
+
+/* Header frente */
+.header {
+    background: linear-gradient(135deg, #162738 0%, #1b0b0b 100%);
+    /*cambie el color*/
+    color: rgb(41, 17, 17);
+    text-align: center;
+    padding: 20px 15px 15px;
+    border-bottom: 3px solid #477992;
+    /*cambie el color*/
+}
+
+.school-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background: rgb(219, 135, 135);
+    /*cambie el color*/
+    border-radius: 50%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(235, 169, 169, 0.2);
+    /*cambie el color*/
+}
+
+.header h2 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+}
+
+.header h3 {
+    font-size: 0.75rem;
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+/* Foto del estudiante */
+.student-photo {
+    display: flex;
+    justify-content: center;
+    margin: -30px auto 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.student-photo img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #2e537a;
+    /*cambie el color*/
+    background: rgb(207, 154, 154);
+    /*cambie el color*/
+    box-shadow: 0 4px 12px rgba(207, 13, 13, 0.2);
+    /*cambie el color*/
+}
+
+/* Información del estudiante */
+.student-info {
+    padding: 15px 20px;
+    flex: 1;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid #64d155;
+    /*cambie el color*/
+}
+
+.info-row .label {
+    font-weight: bold;
+    color: #0c91b9;
+    /*cambie el color*/
+    font-size: 0.85rem;
+    width: 35%;
+}
+
+.info-row .value {
+    color: #1a1616;
+    /*cambie el color*/
+    font-size: 0.85rem;
+    width: 65%;
+    text-align: right;
+    font-weight: 500;
+}
+
+/* Botón girar */
+.flip-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(135deg, #001f3f, #000000);
+    color: white;
+    border: none;
+    padding: 12px;
+    margin: 15px 20px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flip-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #002b5c, #1a1a1a);
+}
+
+.flip-btn:active {
+    transform: translateY(0);
+}
+
+/* REVERSO estilos */
+.back-header {
+    background: linear-gradient(135deg, #000000 0%, #001f3f 100%);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.back-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    background: white;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.back-header h3 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.back-info {
+    padding: 20px;
+    flex: 1;
+}
+
+.info-row-back {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+    padding: 10px;
+    background: rgba(0, 31, 63, 0.05);
+    border-radius: 12px;
+    border-left: 3px solid #001f3f;
+}
+
+.label-back {
+    font-weight: bold;
+    color: #001f3f;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.value-back {
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+/* QR Placeholder */
+.qr-code {
+    display: flex;
+    justify-content: center;
+    margin: 10px 20px;
+}
+
+.qr-placeholder {
+    width: 90px;
+    height: 90px;
+    background: #001f3f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.back-flip-btn {
+    background: linear-gradient(135deg, #000000, #001f3f);
+    margin-top: 5px;
+}
+
+/* RESPONSIVE: Móvil ocupa todo el ancho */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .card-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .card-front,
+    .card-back {
+        aspect-ratio: 3 / 5;
+    }
+
+    .student-photo img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .header {
+        padding: 15px 10px 12px;
+    }
+
+    .header h2 {
+        font-size: 1rem;
+    }
+
+    .info-row .label,
+    .info-row .value {
+        font-size: 0.8rem;
+    }
+}
+
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .student-info {
+        padding: 10px 15px;
+    }
+
+    .info-row {
+        padding: 6px 0;
+    }
+
+    .flip-btn {
+        padding: 10px;
+        margin: 10px 15px 15px;
+        font-size: 0.8rem;
+    }
+
+    .back-info {
+        padding: 15px;
+    }
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.credential-card:target .card-front,
+.credential-card:target .card-back {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Estilo para la barra de dirección cuando se cambia de tarjeta */
+html {
+    scroll-behavior: smooth;
+}
