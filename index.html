@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Credencial Estudiantil</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card-container">
+            <!-- FRENTE DE LA CREDENCIAL -->
+            <div class="credential-card" id="front">
+                <div class="card-front">
+                    <div class="header">
+                        <img src="ube.png" alt="Logo Escuela" class="school-logo">
+                        <!--agrege la imagen del logo de la escuela-->
+                        <h2>Universidad Banemerita Empresarial de Mexico</h2>
+                        <!--cambie en nombre de la universidad dinde estudio-->
+                        <h3>Excelencia Academica</h3>
+                    </div>
+                    
+                    <div class="student-photo">
+                        <img src="hola.avif" alt="Foto Estudiante">
+                        <!--agrege la foto de un jugador de futbot-->
+                    </div>
+                    
+                    <div class="student-info">
+                        <div class="info-row">
+                            <span class="label">Nombre:</span>
+                            <span class="value">Marco Antonio Reyes Aragon </span>
+                            <!--cambie el mi nombre a la pagina-->
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Grado:</span>
+                            <span class="value">6° Semestre</span>
+                            <!--cambie el grado por el del curso-->
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Grupo:</span>
+                            <span class="value">B</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Especialidad:</span>
+                            <span class="value">Contabilidad</span>
+                            <!--agrege mi especialidad -->
+                        </div>
+                    </div>
+                    
+                    <a href="#back" class="flip-btn">Ver datos de respaldo</a>
+                </div>
+            </div>
+
+            <!-- REVERSO DE LA CREDENCIAL -->
+            <div class="credential-card" id="back">
+                <div class="card-back">
+                    <div class="back-header">
+                        <img src="present.jpg" alt="Logo" class="back-logo">
+                        <h3>Datos de Respaldo</h3>
+                    </div>
+                    
+                    <div class="back-info">
+                        <di v class="info-row-back">
+                            <span class="label-back">Dirección:</span>
+                            <span class="value-back">Calzada Vicente Gurerrero </span>
+                            <!--cambi ela direccion por la de donde se encuentra la esuela -->
+                        </div>
+                        <div class="info-row-back">
+                            <span class="label-back">NSS:</span>
+                            <span class="value-back">9876 5432 1098 3</span>
+                        </div>
+                        <div class="info-row-back">
+                            <span class="label-back">Tipo de Sangre:</span>
+                            <span class="value-back">A+</span>
+                        </div>
+                        <div class="info-row-back">
+                            <span class="label-back">Tel. Emergencia:</span>
+                            <span class="value-back">6549-4446-55464</span>
+                            <!--cambie el numero de emergencia-->
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    <a href="#front" class="flip-btn back-flip-btn">Volver al frente</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
